@@ -1,14 +1,3 @@
-= R5.A.08 -- Dépôt pour les TPs
-:icons: font
-:MoSCoW: https://fr.wikipedia.org/wiki/M%C3%A9thode_MoSCoW[MoSCoW]
-
-Ce dépôt concerne les rendus de mailto:A_changer@etu.univ-tlse2.fr[Jonh Doe].
-
-== TP1
-
-is_it_friday_yet.feature
-[source,java]
----
 Feature: Est-ce vendredi ?
 
     Tous le monde veut savoir si c'est vendredi
@@ -29,9 +18,3 @@ Feature: Est-ce vendredi ?
             | dimanche       | Nope   |
             | anything else! | Nope   |
 
----
-
-.Tests réussis
-image::tests.png[width=80%]
-
-== TP2...

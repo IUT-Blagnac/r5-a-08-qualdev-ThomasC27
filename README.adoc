@@ -65,3 +65,64 @@ public class Order {
 
 .Tests réussis
 image::test2.png[width=80%]
+
+== TP3
+
+generate_report.feature
+[source,feature]
+---
+Feature: Génération de rapports PDF à partir de fichiers AsciiDoc
+  En tant qu'utilisateur, je veux m'assurer que le fichier AsciiDoc respecte certaines conditions avant la génération du PDF.
+
+  Scenario: Vérification de l'existence du fichier AsciiDoc
+    Given un fichier AsciiDoc nommé "Documentation_utilisateur.adoc"
+    Then le fichier doit exister
+
+  Scenario: Vérification de la présence d'une section spécifique
+    Given un fichier AsciiDoc nommé "Documentation_utilisateur.adoc"
+    Then la section "Présentation du projet" doit exister dans le fichier
+
+  Scenario Outline: Vérification de la présence des noms dans le fichier
+    Given un fichier AsciiDoc nommé "Documentation_utilisateur.adoc"
+    Then le fichier doit contenir le texte "<nom>"
+
+    Examples:
+      | nom                  |
+      | Maël Carrié          |
+      | Yann Rouquié         |
+      | Julien Bizet         |
+      | Thomas Cossic        |
+      | Mathéo Katbie Mathéo |
+      | Antoine Leboucher    |
+      | Tom Meyer            |
+---
+
+report_steps.rb
+[source,rb]
+---
+Given('un fichier AsciiDoc nommé {string}') do |filename|
+  @filename = filename
+end
+
+Then('le fichier doit exister') do
+  expect(File.exist?(@filename)).to be true
+end
+
+Then('la section {string} doit exister dans le fichier') do |section_title|
+  content = File.read(@filename)
+  expect(content).to include(section_title)
+end
+
+Then('le fichier doit contenir le texte {string}') do |expected_text|
+  content = File.read(@filename)
+  expect(content).to include(expected_text)
+end
+
+---
+
+=Objectifs TP3
+
+Le but de ce TP est de vérifier que la documentation utilisateur respecte certaines conditions.
+
+.Tests réussis
+image::tests3.png[width=80%]

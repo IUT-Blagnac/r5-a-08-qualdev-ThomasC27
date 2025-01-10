@@ -98,7 +98,7 @@ Feature: Génération de rapports PDF à partir de fichiers AsciiDoc
 ---
 
 report_steps.rb
-[source,rb]
+[source,ruby]
 ---
 Given('un fichier AsciiDoc nommé {string}') do |filename|
   @filename = filename
@@ -120,9 +120,21 @@ end
 
 ---
 
-=Objectifs TP3
+=== Objectifs TP3
 
 Le but de ce TP est de vérifier que la documentation utilisateur respecte certaines conditions.
 
 .Tests réussis
 image::tests3.png[width=80%]
+
+== TP4
+
+**report.txt**
+
+include::report.txt[]
+
+**Serenity**
+
+image::serenity.png[width=80%]
+
+Les tests ne se lancent même plus alors qu'avant ils marchaient mais au moins le rapport est généré. 
